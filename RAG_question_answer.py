@@ -94,7 +94,7 @@ parser = StrOutputParser()
 
 # retriever gets the relevant chunks from pinecone to be used as context
 chain = (
-    {"context": vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4}), "question": RunnablePassthrough()}
+    {"context": vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 5}), "question": RunnablePassthrough()}
     | prompt
     | llm
     | parser
