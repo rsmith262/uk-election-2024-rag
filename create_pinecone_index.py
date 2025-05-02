@@ -3,7 +3,7 @@ import time
 
 # for using the .env file
 # this try except block uses the .env file if using locally but won't in production and will use environment variables from production instead
-# this should still work in huggingface spaces but would not work using streamlit. See below commented out for what to use for streamlit
+# this should still work in huggingface spaces but would not work using streamlit.
 
 try:
     from dotenv import load_dotenv

@@ -25,7 +25,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, message=".*OpenMP.*")
 
 # for using the .env file
 # this try except block uses the .env file if using locally but won't in production and will use environment variables from production instead
-# this should still work in huggingface spaces but would not work using streamlit. See below commented out for what to use for streamlit
+# this should still work in huggingface spaces but would not work using streamlit.
 
 try:
     from dotenv import load_dotenv
@@ -69,10 +69,11 @@ vectorstore = PineconeVectorStore(
 
 # prmopt template - frames the question and context passed to the llm
 template = """
-You are a politcal manifesto analyst agent. 
-The documents the contexts are coming from are UK political manifestos for the major UK political parties for the 2024 General Election.
-Answer the question based on the context below.
-If you can't answer the question, reply "I don't have any information on this I'm afraid".
+You are an analyst answering questions using excerpts from UK political party manifestos (2024 General Election).
+
+Answer strictly based on the provided context.  
+If the context is insufficient, reply: "I don't have any information on this I'm afraid."  
+Do not use external knowledge or make assumptions.
 
 Context: {context}
 
